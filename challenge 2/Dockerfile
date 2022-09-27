@@ -1,10 +1,10 @@
-FROM centos:latest
+FROM centos:7.9.2009
 
 RUN yum -y install httpd
 
 ADD webserver.tar.gz /var/www/html/
 
-CMD [ "-D", "FOREGROUND" ]
+CMD ["usr/sbin/httpd" "-D", "FOREGROUND" ]
 
 ENTRYPOINT [ "/usr/sbin/httpd" ]
 
